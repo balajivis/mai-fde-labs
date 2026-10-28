@@ -3,4 +3,4 @@ python-dotenv>=1.0
 rich>=13.7
 # The simulated customer estate is served over MCP, the same protocol you will
 # use on a real engagement. Small install, no local models, no PyTorch.
-mcp>=1.2
+mcp>=2.0

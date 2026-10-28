@@ -34,6 +34,11 @@ unless you ask a question that touches it. A real stakeholder does the same.
 
 Piped input (CI, `echo "" | python ...`) runs a scripted six-question interview
 so the file always exercises every stage without a person at the keyboard.
+
+Measured 2026-10-28 against the class model: with the scripted six questions
+(one fair opener and one trigger per persona) all 3 of 3 hidden constraints
+surfaced only on the trigger question — none leaked on the opener or on
+"anything else I should know?". 9 calls, ~11k tokens for the whole lab.
 """
 
 from __future__ import annotations

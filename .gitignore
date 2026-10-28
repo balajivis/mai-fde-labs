@@ -21,3 +21,6 @@ stock_rag/predictions.jsonl
 estate/data/audit.jsonl
 .estate_state/
 reports/
+
+# estate writes (layered over the generated files; reset() clears it)
+estate/data/state.json

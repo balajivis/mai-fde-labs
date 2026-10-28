@@ -1,0 +1,89 @@
+[
+  {
+    "id": "viewer.sam",
+    "name": "Sam Whitfield",
+    "role": "viewer",
+    "regions": [
+      "west"
+    ],
+    "can_see_pii": false,
+    "title": "Service desk trainee, west"
+  },
+  {
+    "id": "agent.priya",
+    "name": "Priya Raman",
+    "role": "agent",
+    "regions": [
+      "west",
+      "central"
+    ],
+    "can_see_pii": false,
+    "title": "Service desk agent, west + central"
+  },
+  {
+    "id": "agent.jonah",
+    "name": "Jonah Adeyemi",
+    "role": "agent",
+    "regions": [
+      "east"
+    ],
+    "can_see_pii": true,
+    "title": "Senior service desk agent, east (billing-cleared)"
+  },
+  {
+    "id": "admin.ruth",
+    "name": "Ruth Castellanos",
+    "role": "admin",
+    "regions": [
+      "west",
+      "central",
+      "east"
+    ],
+    "can_see_pii": true,
+    "title": "IT security owner"
+  },
+  {
+    "id": "viewer.dana",
+    "name": "Dana Okafor",
+    "role": "viewer",
+    "regions": [
+      "west",
+      "central",
+      "east"
+    ],
+    "can_see_pii": false,
+    "title": "Operations lead, service desk"
+  },
+  {
+    "id": "agent.mei",
+    "name": "Mei Tanaka",
+    "role": "agent",
+    "regions": [
+      "central"
+    ],
+    "can_see_pii": false,
+    "title": "Service desk agent, central"
+  },
+  {
+    "id": "agent.luis",
+    "name": "Luis Delgado",
+    "role": "agent",
+    "regions": [
+      "east"
+    ],
+    "can_see_pii": false,
+    "title": "Service desk agent, east"
+  },
+  {
+    "id": "admin.marcus",
+    "name": "Marcus Lindqvist",
+    "role": "admin",
+    "regions": [
+      "west",
+      "central",
+      "east"
+    ],
+    "can_see_pii": true,
+    "title": "CFO"
+  }
+]
