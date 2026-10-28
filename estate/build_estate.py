@@ -153,7 +153,9 @@ CATER_A = ["Silver Spoon", "Two Forks", "Gather", "Basil & Thyme", "Wildflower",
            "Harvest Moon", "Second Course"]
 CATER_B = ["Catering", "Events Co", "Catering & Events", "Hospitality Group", "Catering Ltd",
            "Food Services"]
-EMAIL_DOMAINS = ["gmail.com", "outlook.com", "yahoo.com"]
+# RFC 2606 reserved domains only: a generated name on a real mail provider could
+# belong to a real person, and this file is public.
+EMAIL_DOMAINS = ["mail.example", "post.example", "inbox.example"]
 AGENTS_BY_REGION = {"west": ["agent.priya"], "central": ["agent.priya", "agent.mei"],
                     "east": ["agent.jonah", "agent.luis"]}
 TECHS = ["Ray", "Deshawn", "Mick", "Tomas", "Ana", "Bo"]
@@ -228,7 +230,7 @@ def build_customers(rng: random.Random, plants: list[dict]) -> list[dict]:
         region = rng.choice(REGIONS)
         city, state, zip3 = rng.choice(CITIES[region])
         first, last = rng.choice(FIRST), rng.choice(LAST)
-        domain = (_slug(name)[:14] + ".com") if rng.random() < 0.7 else rng.choice(EMAIL_DOMAINS)
+        domain = (_slug(name)[:14] + ".example") if rng.random() < 0.7 else rng.choice(EMAIL_DOMAINS)
         customers.append({
             "id": f"C-{1000 + n}",
             "name": name,
