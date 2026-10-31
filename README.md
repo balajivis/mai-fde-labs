@@ -56,6 +56,7 @@ The templates for all six artefacts are in [`artefacts/`](./artefacts). The labs
 | `golden/` | the frozen golden set: 180 cases, two human labellers, the disagreements written down, and the hash it was frozen at |
 | `labs/_kit.py` · `_web.py` | the plumbing from the builder kits, unchanged: `client()`, `chat()` with the meter and the JSONL tracer, the knob panel |
 | `docs/CONTRACT.md` | the spec every file above is written against — read it when you want to know *why* something is shaped the way it is |
+| `docs/COST.md` · `labs/cost_estimate.py` | the fifteen-minute cost estimate: four lines (model calls, embeddings, evals, fixed + people), a worksheet, and a calculator that later reads your own traces. Prices come from your provider's page, not from the kit |
 | `docs/FLOWS.md` · `docs/flows/` | the five reference flows as SVG sheets (open `docs/flows/index.html` in a browser): trigger, fixed steps, where the model judges, the write, the gate. Saturday starts by picking one |
 
 Your writes to the estate go to `estate/data/state.json` (gitignored), so `git pull` never clobbers your run and `_estate.reset()` returns to a clean customer.
