@@ -1,0 +1,336 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="stk-t stk-d" class="stack">
+  <title id="stk-t">Agent Architecture — the eight layers (from Kapi, alpha.getkapi.com/agent-architecture)</title>
+  <desc id="stk-d">The parts of an agent product, from the model outward: one agent, a graph of agents, what starts a run and where the answer goes, the screens people use, what it remembers at three scopes, the systems and data it works with, human approval and evals, what starts a run, the screens people use, and the foundations underneath, with governance around everything.</desc>
+  <style>
+    .stack { --_d: var(--display, 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif); --_s: var(--sans, 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif); --_m: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace); }
+    .stack .bg { fill: var(--figure, #F8FAF9); }
+    .stack .tx { fill: var(--ink, #15201F); }
+    .stack .mu { fill: var(--muted, #5B6866); }
+    .stack .d { font-family: var(--_d); font-weight: 600; }
+    .stack .s { font-family: var(--_s); }
+    .stack .m { font-family: var(--_m); }
+    .stack .tag { font-family: var(--_m); font-size: 13px; font-weight: 500; letter-spacing: .08em; }
+    .stack .think  { fill: var(--think-tint, #E2F0EE); stroke: var(--think, #0E6B66); }
+    .stack .edge   { fill: var(--edge-tint, #F7EBDA); stroke: var(--edge, #B86E12); }
+    .stack .reach  { fill: var(--reach-tint, #E6E9F5); stroke: var(--reach, #3E4C94); }
+    .stack .over   { fill: var(--over-tint, #F6E4E7); stroke: var(--over, #A33D4B); }
+    .stack .found  { fill: var(--found-tint, #E4E8E7); stroke: var(--found, #3A4442); }
+    .stack .band   { fill: var(--band, #EEF2F0); stroke: none; }
+    .stack .c-think { fill: var(--think, #0E6B66); } .stack .c-edge { fill: var(--edge, #B86E12); }
+    .stack .c-reach { fill: var(--reach, #3E4C94); } .stack .c-over { fill: var(--over, #A33D4B); }
+    .stack .c-found { fill: var(--found, #3A4442); }
+    .stack .l-think { stroke: var(--think, #0E6B66); fill: none; } .stack .l-edge { stroke: var(--edge, #B86E12); fill: none; }
+    .stack .l-reach { stroke: var(--reach, #3E4C94); fill: none; } .stack .l-over { stroke: var(--over, #A33D4B); fill: none; }
+    .stack .l-found { stroke: var(--found, #3A4442); fill: none; } .stack .l-gov { stroke: var(--ink, #15201F); fill: none; }
+    .stack .gap { fill: var(--figure, #F8FAF9); }
+  </style>
+  <defs>
+    <marker id="a-think" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="c-think"/></marker>
+    <marker id="a-edge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="c-edge"/></marker>
+    <marker id="a-reach" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="c-reach"/></marker>
+    <marker id="a-over" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="c-over"/></marker>
+    <marker id="a-found" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="c-found"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="900"/>
+
+  <!-- ── GOVERNANCE: the frame around everything ───────────────────────── -->
+  <g data-s="9">
+    <rect class="l-gov" x="16" y="16" width="1568" height="868" rx="22" stroke-width="2" stroke-dasharray="10 8"/>
+    <rect class="gap" x="40" y="4" width="560" height="26"/>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/governance" class="edu-svg-try"><title>Set the limits yourself</title>
+    <text class="tag tx" x="50" y="22">GOVERNANCE · limits that apply to every layer · set them →</text>
+    </a>
+  </g>
+
+  <!-- ── L2 UI: what we render ─────────────────────────────────────────── -->
+  <g data-s="8">
+    <rect class="band" x="40" y="54" width="1520" height="120" rx="16"/>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/ui" class="edu-svg-try"><title>Every surface and block, to open and use</title>
+    <text class="tag c-edge" x="64" y="90">L2</text>
+    <text class="m c-edge" x="276" y="90" font-size="13" text-anchor="end">browse →</text>
+    <text class="d tx" x="64" y="120" font-size="26">UI</text>
+    <text class="s mu" x="64" y="146" font-size="16">what we render</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/ui/app/chat" class="edu-svg-try"><title>Open the chat surface as the app</title>
+    <rect class="edge" x="300" y="76" width="226" height="76" rx="12" stroke-width="1.5"/>
+    <text class="d tx" x="320" y="108" font-size="20">Chat</text>
+    <text class="s mu" x="320" y="134" font-size="15">the end user</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/ui/app/queue" class="edu-svg-try"><title>Open the queue as the app</title>
+    <rect class="edge" x="542" y="76" width="226" height="76" rx="12" stroke-width="1.5"/>
+    <text class="d tx" x="562" y="108" font-size="20">Queue</text>
+    <text class="s mu" x="562" y="134" font-size="15">staff · approve, edit, take over</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/records?s=history" class="edu-svg-try"><title>The records, and every change to them</title>
+    <rect class="edge" x="784" y="76" width="226" height="76" rx="12" stroke-width="1.5"/>
+    <text class="d tx" x="804" y="108" font-size="20">Table</text>
+    <text class="s mu" x="804" y="134" font-size="15">staff · the records</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/ui/app/dashboard" class="edu-svg-try"><title>Open the dashboard as the app</title>
+    <rect class="edge" x="1026" y="76" width="226" height="76" rx="12" stroke-width="1.5"/>
+    <text class="d tx" x="1046" y="108" font-size="20">Dashboard</text>
+    <text class="s mu" x="1046" y="134" font-size="15">staff · evals and traces</text>
+    </a>
+
+    <text class="s mu" x="1290" y="100" font-size="14.5">Slack, email and terminals</text>
+    <text class="s mu" x="1290" y="121" font-size="14.5">aren't UI: we send to them,</text>
+    <text class="s mu" x="1290" y="142" font-size="14.5">so they belong to L1.</text>
+  </g>
+
+  <!-- ── L1 TRIGGERS · in ──────────────────────────────────────────────── -->
+  <g data-s="7">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=yours" class="edu-svg-try"><title>Arm a trigger yourself</title>
+    <text class="tag c-edge" x="48" y="212">L1</text>
+    <text class="m c-edge" x="258" y="212" font-size="13" text-anchor="end">set one up →</text>
+    <text class="d tx" x="48" y="238" font-size="21">Triggers · in</text>
+    <text class="s mu" x="48" y="260" font-size="15">what starts a run</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=start" class="edu-svg-try"><title>What starts a run besides a person typing</title>
+      <rect class="edge" x="48" y="278" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="66" y="302" font-size="15">a person · chat</text>
+    </a>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=webhooks" class="edu-svg-try"><title>How a webhook proves itself</title>
+      <rect class="edge" x="48" y="326" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="66" y="350" font-size="15">an event · webhook</text>
+    </a>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=schedules" class="edu-svg-try"><title>When a schedule fires, exactly</title>
+      <rect class="edge" x="48" y="374" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="66" y="398" font-size="15">time · schedule</text>
+    </a>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=webhooks" class="edu-svg-try"><title>Email and Slack arrive as events</title>
+      <rect class="edge" x="48" y="422" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="66" y="446" font-size="15">a channel · email, Slack</text>
+    </a>
+
+    <path class="l-edge" stroke-width="1.5" d="M258,297 H286 M258,345 H286 M258,393 H286 M258,441 H286 M286,297 V441"/>
+    <path class="l-edge" stroke-width="2" d="M286,368 H326" marker-end="url(#a-edge)"/>
+  </g>
+
+  <!-- ── L1 TRIGGERS · out ─────────────────────────────────────────────── -->
+  <g data-s="7">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=whose" class="edu-svg-try"><title>Where a triggered run’s answer goes</title>
+    <text class="tag c-edge" x="1340" y="212">L1</text>
+    <text class="m c-edge" x="1552" y="212" font-size="13" text-anchor="end">see how →</text>
+    <text class="d tx" x="1340" y="238" font-size="21">Triggers · out</text>
+    <text class="s mu" x="1340" y="260" font-size="15">where the answer goes</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=whose" class="edu-svg-try"><title>Where a triggered run’s answer goes</title>
+      <rect class="edge" x="1342" y="278" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="1360" y="302" font-size="15">a reply in chat</text>
+    </a>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=whose" class="edu-svg-try"><title>Where a triggered run’s answer goes</title>
+      <rect class="edge" x="1342" y="326" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="1360" y="350" font-size="15">an email reply</text>
+    </a>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=whose" class="edu-svg-try"><title>Where a triggered run’s answer goes</title>
+      <rect class="edge" x="1342" y="374" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="1360" y="398" font-size="15">a notification</text>
+    </a>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/triggers?s=whose" class="edu-svg-try"><title>Where a triggered run’s answer goes</title>
+      <rect class="edge" x="1342" y="422" width="210" height="38" rx="19" stroke-width="1.5"/>
+      <text class="s tx" x="1360" y="446" font-size="15">a record updated</text>
+    </a>
+
+    <path class="l-edge" stroke-width="1.5" d="M1326,297 H1342 M1326,345 H1342 M1326,393 H1342 M1326,441 H1342 M1326,297 V441"/>
+    <path class="l-edge" stroke-width="2" d="M1300,297 H1326"/>
+  </g>
+
+  <!-- ── L3 GRAPH: agents and the edges between them ───────────────────── -->
+  <g data-s="3">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/graph" class="edu-svg-try"><title>Wire your agents into a graph</title>
+    <text class="tag c-think" x="330" y="206">L3</text>
+    <text class="d tx" x="362" y="206" font-size="19">Graph: which agents do the work, and how it passes between them</text>
+
+    <text class="tag mu" x="330" y="310">ENTRY</text>
+    <rect class="think" x="330" y="318" width="190" height="100" rx="14" stroke-width="1.5"/>
+    <text class="d tx" x="348" y="350" font-size="20">classifier</text>
+    <text class="s mu" x="348" y="373" font-size="14.5">qualify · direct</text>
+    <text class="m c-think" x="348" y="400" font-size="13.5">→ intent, sentiment</text>
+
+    <rect class="think" x="940" y="318" width="190" height="100" rx="14" stroke-width="1.5"/>
+    <text class="d tx" x="958" y="350" font-size="20">reviewer</text>
+    <text class="s mu" x="958" y="373" font-size="14.5">review · direct</text>
+    <text class="m c-think" x="958" y="400" font-size="13.5">→ confidence</text>
+
+    <rect class="think" x="1180" y="275" width="120" height="44" rx="22" stroke-width="2"/>
+    <text class="m tx" x="1240" y="303" font-size="16" text-anchor="middle" font-weight="500">user</text>
+    <rect class="think" x="1180" y="424" width="120" height="44" rx="22" stroke-width="2"/>
+    <text class="m tx" x="1240" y="452" font-size="16" text-anchor="middle" font-weight="500">queue</text>
+
+    <path class="l-think" stroke-width="2" d="M520,368 H566" marker-end="url(#a-think)"/>
+    <path class="l-think" stroke-width="2" d="M890,368 H936" marker-end="url(#a-think)"/>
+    <path class="l-think" stroke-width="2" d="M1130,346 C1156,346 1154,297 1176,297" marker-end="url(#a-think)"/>
+    <path class="l-think" stroke-width="2" d="M1130,392 C1156,392 1154,446 1176,446" marker-end="url(#a-think)"/>
+    <path class="l-think" stroke-width="1.75" stroke-dasharray="6 5" d="M1035,318 C1035,236 760,226 760,246" marker-end="url(#a-think)"/>
+
+    <text class="m c-think" x="1186" y="344" font-size="13">confidence ≥ 0.7</text>
+    <text class="m mu" x="1186" y="410" font-size="13">otherwise</text>
+    <text class="m mu" x="898" y="232" font-size="13" text-anchor="middle">revise, up to 2 times</text>
+    </a>
+  </g>
+
+  <!-- ── ONE AGENT, opened: the four pillars ───────────────────────────── -->
+  <g data-s="2">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/agents" class="edu-svg-try"><title>Build and run an agent yourself</title>
+    <rect class="think" x="570" y="250" width="320" height="240" rx="16" stroke-width="2.25"/>
+    <text class="d tx" x="588" y="283" font-size="22">responder</text>
+    <text class="s mu" x="588" y="306" font-size="14.5">one agent, in detail</text>
+    <text class="m c-think" x="872" y="283" font-size="13" text-anchor="end">build one →</text>
+
+    <rect class="gap" x="586" y="320" width="140" height="62" rx="9"/>
+    <rect class="l-think" x="586" y="320" width="140" height="62" rx="9" stroke-width="1"/>
+    <text class="d tx" x="598" y="346" font-size="16">Profile</text>
+    <text class="s mu" x="598" y="368" font-size="13.5">its role</text>
+
+    <rect class="gap" x="734" y="320" width="140" height="62" rx="9"/>
+    <rect class="l-think" x="734" y="320" width="140" height="62" rx="9" stroke-width="1"/>
+    <text class="d tx" x="746" y="346" font-size="16">Tools</text>
+    <text class="s mu" x="746" y="368" font-size="13.5">what it can use</text>
+
+    <rect class="gap" x="586" y="390" width="140" height="62" rx="9"/>
+    <rect class="l-think" x="586" y="390" width="140" height="62" rx="9" stroke-width="1"/>
+    <text class="d tx" x="598" y="416" font-size="16">Controls</text>
+    <text class="s mu" x="598" y="438" font-size="13.5">what it may do</text>
+
+    <rect class="gap" x="734" y="390" width="140" height="62" rx="9"/>
+    <rect class="l-think" x="734" y="390" width="140" height="62" rx="9" stroke-width="1"/>
+    <text class="d tx" x="746" y="416" font-size="16">Planner</text>
+    <text class="s mu" x="746" y="438" font-size="13.5">how it works</text>
+
+    <text class="m c-think" x="588" y="476" font-size="13">→ returns typed fields</text>
+    </a>
+  </g>
+
+  <!-- memory's smaller scopes: the agent's scratchpad, the run's board -->
+  <g data-s="2" data-also="4">
+    <rect class="gap" x="786" y="462" width="90" height="22" rx="11"/>
+    <rect class="l-found" x="786" y="462" width="90" height="22" rx="11" stroke-width="1.25" stroke-dasharray="4 3"/>
+    <text class="m tx" x="831" y="477" font-size="12" text-anchor="middle">scratchpad</text>
+  </g>
+  <g data-s="3" data-also="4">
+    <rect class="gap" x="330" y="436" width="228" height="30" rx="15"/>
+    <rect class="l-found" x="330" y="436" width="228" height="30" rx="15" stroke-width="1.25" stroke-dasharray="4 3"/>
+    <text class="m tx" x="444" y="456" font-size="12.5" text-anchor="middle">board · shared by the run</text>
+  </g>
+  <!-- memory's three scopes, joined: shown only on its own step -->
+  <g data-s="4" data-only="4">
+    <path class="l-found" stroke-width="1.75" stroke-dasharray="6 5" d="M960,766 C960,640 860,560 846,488" marker-end="url(#a-found)"/>
+    <text class="s mu" x="972" y="640" font-size="15">recalled at the start of a run,</text>
+    <text class="s mu" x="972" y="660" font-size="15">learned from it at the end</text>
+    <text class="tag c-found" x="330" y="500">THREE SCOPES</text>
+    <text class="s mu" x="330" y="524" font-size="15">scratchpad · one agent, one turn</text>
+    <text class="s mu" x="330" y="546" font-size="15">board · the agents in one run</text>
+    <text class="s mu" x="330" y="568" font-size="15">the person · outlives every agent</text>
+  </g>
+
+  <!-- the model feeds the agent: shown only while the agent is introduced -->
+  <g data-s="2" data-only="2">
+    <path class="l-found" stroke-width="1.75" stroke-dasharray="6 5" d="M414,800 C520,800 620,640 620,494" marker-end="url(#a-found)"/>
+    <text class="s mu" x="270" y="660" font-size="15">each agent picks a model size</text>
+  </g>
+
+  <!-- ── L4 L5 L6: what it reaches, reads, acts on ─────────────────────── -->
+  <g data-s="5">
+    <path class="l-reach" stroke-width="1.5" stroke-dasharray="5 5" d="M680,490 L260,594 M730,490 L672,594 M780,490 L1084,594"/>
+    <text class="m c-reach" x="790" y="548" font-size="13">tool calls</text>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/integrations" class="edu-svg-try"><title>Connect a tool yourself</title>
+    <rect class="reach" x="48" y="596" width="400" height="120" rx="14" stroke-width="1.5"/>
+    <text class="tag c-reach" x="68" y="626">L4</text>
+    <text class="d tx" x="100" y="627" font-size="20">Integrations</text>
+    <text class="d c-reach" x="428" y="627" font-size="16" text-anchor="end">connects to</text>
+    <text class="s mu" x="68" y="654" font-size="14.5">MCP servers, screened and risk-rated</text>
+    <text class="m tx" x="68" y="696" font-size="13.5">helpdesk · CRM · Slack</text>
+    <text class="m c-reach" x="428" y="696" font-size="13" text-anchor="end">connect one →</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/knowledge" class="edu-svg-try"><title>Search your documents yourself</title>
+    <rect class="reach" x="472" y="596" width="400" height="120" rx="14" stroke-width="1.5"/>
+    <text class="tag c-reach" x="492" y="626">L5</text>
+    <text class="d tx" x="524" y="627" font-size="20">Knowledge</text>
+    <text class="d c-reach" x="852" y="627" font-size="16" text-anchor="end">reads</text>
+    <text class="s mu" x="492" y="654" font-size="14.5">documents it reads but never edits</text>
+    <text class="m tx" x="492" y="696" font-size="13.5">help docs · past tickets</text>
+    <text class="m c-reach" x="852" y="696" font-size="13" text-anchor="end">search them →</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/records" class="edu-svg-try"><title>Have an agent change a record yourself</title>
+    <rect class="reach" x="896" y="596" width="400" height="120" rx="14" stroke-width="1.5"/>
+    <text class="tag c-reach" x="916" y="626">L6</text>
+    <text class="d tx" x="948" y="627" font-size="20">Records</text>
+    <text class="d c-reach" x="1276" y="627" font-size="16" text-anchor="end">updates</text>
+    <text class="s mu" x="916" y="654" font-size="14.5">data it updates, with fields the PM sets</text>
+    <text class="m tx" x="916" y="696" font-size="13.5">ticket · status · priority</text>
+    <text class="m c-reach" x="1276" y="696" font-size="13" text-anchor="end">change one →</text>
+    </a>
+  </g>
+
+  <!-- ── L7 HITL and L8 EVALS: who approves, how it's judged ──────────── -->
+  <g data-s="6">
+    <path class="l-over" stroke-width="2" d="M1300,446 C1320,446 1318,512 1338,512" marker-end="url(#a-over)"/>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/hitl" class="edu-svg-try"><title>Review your own queue</title>
+    <rect class="over" x="1342" y="476" width="210" height="96" rx="14" stroke-width="1.5"/>
+    <text class="tag c-over" x="1360" y="504">L7</text>
+    <text class="d tx" x="1392" y="505" font-size="20">HITL</text>
+    <text class="m c-over" x="1534" y="504" font-size="13" text-anchor="end">review →</text>
+    <text class="s mu" x="1360" y="532" font-size="14">a person approves or takes</text>
+    <text class="s mu" x="1360" y="552" font-size="14">over (staff or end user)</text>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/eval" class="edu-svg-try"><title>Test your graph yourself</title>
+    <rect class="over" x="1342" y="596" width="210" height="120" rx="14" stroke-width="1.5"/>
+    <text class="tag c-over" x="1360" y="626">L8</text>
+    <text class="d tx" x="1392" y="627" font-size="20">Evals</text>
+    <text class="m c-over" x="1534" y="626" font-size="13" text-anchor="end">test →</text>
+    <text class="s mu" x="1360" y="654" font-size="14">tests for answer quality</text>
+    <text class="m tx" x="1360" y="680" font-size="13">golden examples · judges</text>
+    <path class="c-over" d="M1367,694 L1374,701 L1367,708 L1360,701 z"/>
+    <text class="m tx" x="1382" y="706" font-size="13">a check on an edge</text>
+    </a>
+
+    <path class="c-over" d="M1154,309 L1163,318 L1154,327 L1145,318 z"/>
+  </g>
+
+  <!-- ── FOUNDATIONS: what the runtime guarantees ──────────────────────── -->
+  <g data-s="1" data-also="9">
+    <text class="tag mu" x="48" y="752">FOUNDATIONS · ALWAYS ON, NEVER CONFIGURED</text>
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/model" class="edu-svg-try"><title>Ask the model yourself</title>
+    <rect class="found" x="48" y="766" width="366" height="86" rx="14" stroke-width="2"/>
+    <text class="d tx" x="68" y="800" font-size="21">Model</text>
+    <text class="s mu" x="68" y="828" font-size="15">every call through one gateway</text>
+    <text class="m c-found" x="394" y="800" font-size="13" text-anchor="end">try it →</text>
+    </a>
+  </g>
+  <g data-s="9">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/tenancy" class="edu-svg-try"><title>Whose data is whose — checked on your own session</title>
+    <rect class="found" x="430" y="766" width="366" height="86" rx="14" stroke-width="1.5"/>
+    <text class="d tx" x="450" y="800" font-size="21">Tenancy</text>
+    <text class="s mu" x="450" y="828" font-size="15">whose data: customer · tenant · user</text>
+    </a>
+  </g>
+
+  <!-- ── MEMORY: a foundation, introduced on its own step (4) ──────────── -->
+  <g data-s="4" data-also="9">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/memory?store=talk" class="edu-svg-try"><title>Teach it about yourself</title>
+    <rect class="found" x="812" y="766" width="366" height="86" rx="14" stroke-width="2"/>
+    <text class="d tx" x="832" y="800" font-size="21">Memory · the person</text>
+    <text class="s mu" x="832" y="828" font-size="15">what it learns about each person</text>
+    <text class="m c-found" x="1158" y="800" font-size="13" text-anchor="end">teach it →</text>
+    </a>
+  </g>
+  <g data-s="9">
+    <a target="_blank" rel="noopener" href="https://alpha.getkapi.com/observability" class="edu-svg-try"><title>See what your runs spend and how long they take</title>
+    <rect class="found" x="1194" y="766" width="358" height="86" rx="14" stroke-width="1.5"/>
+    <text class="d tx" x="1214" y="800" font-size="21">Observability</text>
+    <text class="s mu" x="1214" y="828" font-size="15">every call traced and costed</text>
+    <text class="m c-found" x="1532" y="800" font-size="13" text-anchor="end">see yours →</text>
+    </a>
+  </g>
+</svg>

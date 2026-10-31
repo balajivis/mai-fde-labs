@@ -12,6 +12,12 @@ The same legend on every sheet: a **grey box** is a fixed step, plain code, the 
 | 4 | **Knowledge Q&A with write-back** | a person's question | two boxes: the cited answer; propose a write or none | one small write, if the role allows | the role check inside the estate; a denial is audited | `search_policies`, `get_policy`, `set_ticket` |
 | 5 | **Planner + workers** | a case one flow cannot hold | two boxes: the plan; the merge | every worker's writes, through one gate | one named approver for anything destructive | lab 5's autonomy ladder; earn it with an ablation on the golden set |
 
+## The map the five sit on
+
+Every flow below is a path through the same eight layers. This is Kapi's Agent Architecture sheet (`docs/flows/00-eight-layers.svg`, from [alpha.getkapi.com/agent-architecture](https://alpha.getkapi.com/agent-architecture); the boxes link there, so a Kapi login lets you open each layer). Triggers in on the left, the graph in the middle with the one agent opened up (profile, tools, controls, planner), triggers out on the right, HITL and evals on the edge, integrations / knowledge / records underneath, and the foundations that are always on. The Integration Map (Deliverable II) is this picture with the customer's systems written into each layer.
+
+![0 · The eight layers](./flows/00-eight-layers.svg)
+
 ## The sheets
 
 ![1 · Ticket triage](./flows/01-ticket-triage.svg)
