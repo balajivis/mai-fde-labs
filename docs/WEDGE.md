@@ -15,7 +15,7 @@ The lab is the walkthrough. `python labs/lab_2_wedge.py` runs the six stages in 
 | 5 The batch | `--n 8` or `--n 12` open tickets in priya's scope | Tokens, latency, escalations per ticket. Then the cost line from lab 1a, now measured: tokens × today's price, against $31 today | Oct 28: p50 7.1 s, p95 12.7 s, 11.4k tokens per ticket, about 95% input. Theirs will differ; the meter is the point |
 | 6 The map | `reports/integration-map.md` pre-filled: identity table, eight layers marked build / connect / never | They fill the owner column and "we never touch". Signed by their IT persona | A layer with no owner is where the pilot stalls. Then open `estate/data/audit.jsonl`: one file Ruth can read |
 
-**Timing from 10:45:** stages 1 and 2 by 11:15, stage 3 with the fix by 11:50, 4 and 5 by 12:15, the map and the cost line to 12:30.
+**Timing from 10:40:** stages 1 and 2 by 11:15, stage 3 with the fix by 11:50, 4 and 5 by 12:15, the map and the cost line to 12:30.
 
 **Their part:** stage 3 is where they edit. The orphan-order prompt fix is theirs to make and re-run. Stage 6 leaves the owner column and "we never touch" for them.
 

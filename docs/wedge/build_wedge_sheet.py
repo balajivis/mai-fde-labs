@@ -91,7 +91,7 @@ def main() -> None:
         out.append(text(xs[ci], 100, name.upper(), 11, "#6b6358", "600"))
     out.append(f'<line x1="{PAD - 10}" y1="108" x2="{W - PAD + 10}" y2="108" stroke="#c9c3b5"/>')
     out += body
-    out.append(text(PAD, H - 24, "Timing from 10:45 — stages 1–2 by 11:15 · stage 3 with the fix by 11:50 · 4–5 by 12:15 · the map and the cost line to 12:30", 11.5, "#1a1713", "600"))
+    out.append(text(PAD, H - 24, "Timing from 10:40 — stages 1–2 by 11:15 · stage 3 with the fix by 11:50 · 4–5 by 12:15 · the map and the cost line to 12:30", 11.5, "#1a1713", "600"))
     out.append("</svg>")
     (HERE / "lab2-stages.svg").write_text("\n".join(out) + "\n", encoding="utf-8")
     print("wrote lab2-stages.svg", W, "x", H)
