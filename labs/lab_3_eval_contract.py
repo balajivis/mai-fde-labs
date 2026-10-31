@@ -368,7 +368,7 @@ def stage_judge(cli) -> None:
                           "kappa_a_b": kappa(S["a"], S["b"], [c["id"] for c in cases])}
         say(f"  A vs B on all 180: {S['agreement']['a_b_all']}% (κ {S['agreement']['kappa_a_b']}) — the ceiling, with no judge to hold against it")
         return
-    ids = [c["id"] for c in jv]
+    ids = list(jv)
     all_ids = [c["id"] for c in cases]
     S["judge"] = {"verdicts": jv, "reasons": reasons, "ids": ids, "stopped": stopped}
     S["agreement"] = {
