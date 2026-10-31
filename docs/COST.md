@@ -42,14 +42,14 @@ per task today                    ______   ← from the brief
 Or let the kit do the arithmetic:
 
 ```bash
-python labs/cost_estimate.py --tasks 200 --tokens-in 10800 --tokens-out 600 \
+python labs/lab_1a_cost.py --tasks 200 --tokens-in 10800 --tokens-out 600 \
     --price-in <in> --price-out <out> --fixed 350 --people-hours 20 --loaded-rate 38
 ```
 
 After lab 2, the measured version reads your own traces:
 
 ```bash
-python labs/cost_estimate.py --from-traces traces.jsonl --calls-per-task 5 --tasks 200 --price-in <in> --price-out <out>
+python labs/lab_1a_cost.py --from-traces traces.jsonl --calls-per-task 5 --tasks 200 --price-in <in> --price-out <out>
 ```
 
 ## The exercise (15 minutes)

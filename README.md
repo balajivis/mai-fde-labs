@@ -37,6 +37,7 @@ Four checks — Python and the packages, your key with one tiny model call, the 
 | Day | Lab | Session | What you leave with |
 |---|---|---|---|
 | Fri | `lab_1_discovery.py` | the discovery interview · ROI · the brief | **Deliverable I — Engagement Brief**, signed by your simulated customer |
+| Sat | `lab_1a_cost.py` | the fifteen-minute cost estimate, before the wedge | the ROI line in Deliverable I, with a cost you can defend |
 | Sat | `lab_2_wedge.py` | integration over MCP · build the wedge | **Deliverable II — Integration Map** |
 | Sat | `lab_3_eval_contract.py` | evals as the contract · the calibrated judge | **Deliverable III — Eval Contract** |
 | Sun | `lab_4_security.py` | the security review · red-team | **Deliverable IV — Security Review Pack** |
@@ -56,7 +57,7 @@ The templates for all six artefacts are in [`artefacts/`](./artefacts). The labs
 | `golden/` | the frozen golden set: 180 cases, two human labellers, the disagreements written down, and the hash it was frozen at |
 | `labs/_kit.py` · `_web.py` | the plumbing from the builder kits, unchanged: `client()`, `chat()` with the meter and the JSONL tracer, the knob panel |
 | `docs/CONTRACT.md` | the spec every file above is written against — read it when you want to know *why* something is shaped the way it is |
-| `docs/COST.md` · `labs/cost_estimate.py` | the fifteen-minute cost estimate: four lines (model calls, embeddings, evals, fixed + people), a worksheet, and a calculator that later reads your own traces. Prices come from your provider's page, not from the kit |
+| `docs/COST.md` · `labs/lab_1a_cost.py` | lab 1a, the fifteen-minute cost estimate: four lines (model calls, embeddings, evals, fixed + people), a worksheet, and a calculator that later reads your own traces. Prices come from your provider's page, not from the kit |
 | `docs/FLOWS.md` · `docs/flows/` | the five reference flows as SVG sheets (open `docs/flows/index.html` in a browser): trigger, fixed steps, where the model judges, the write, the gate. Saturday starts by picking one |
 
 Your writes to the estate go to `estate/data/state.json` (gitignored), so `git pull` never clobbers your run and `_estate.reset()` returns to a clean customer.

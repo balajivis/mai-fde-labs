@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""COST ESTIMATE — the fifteen-minute version
+"""Lab 1a — WHAT DOES A TICKET COST?
 
-Modern AI Pro · FDE Field Kit · Day 2 · before the wedge
+Modern AI Pro · FDE Field Kit · Day 2 · before the wedge (fifteen minutes)
 
 The CFO asks one question on Friday and again on Sunday: what does a ticket
 cost? Estimate it now with four lines of arithmetic, then let lab 2's batch
@@ -19,10 +19,10 @@ input and output price per million tokens from your provider's price page and
 pass them in. Without prices the tool still prints the token totals, which is
 the half of the estimate that is yours to defend.
 
-    python labs/cost_estimate.py --tasks 200 --tokens-in 10000 --tokens-out 600 \
+    python labs/lab_1a_cost.py --tasks 200 --tokens-in 10000 --tokens-out 600 \
         --price-in 2.50 --price-out 10.00 --fixed 350
 
-    python labs/cost_estimate.py --from-traces traces.jsonl --tasks 200 --price-in 2.50 --price-out 10.00
+    python labs/lab_1a_cost.py --from-traces traces.jsonl --tasks 200 --price-in 2.50 --price-out 10.00
         (tokens per task come from the traced calls of your lab 2 run)
 
 Numbers to start from, measured 2026-10-28 on the kit's own wedge (lab 2, stage 5):
