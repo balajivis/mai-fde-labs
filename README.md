@@ -59,6 +59,7 @@ The templates for all six artefacts are in [`artefacts/`](./artefacts). The labs
 | `docs/CONTRACT.md` | the spec every file above is written against — read it when you want to know *why* something is shaped the way it is |
 | `docs/WEDGE.md` · `docs/wedge/` | lab 2 stage by stage as one sheet: what they do, the point to land, what to watch for, with the Oct 28 reference numbers |
 | `docs/COST.md` · `labs/lab_1a_cost.py` | lab 1a, the fifteen-minute cost estimate: four lines (model calls, embeddings, evals, fixed + people), a worksheet, and a calculator that later reads your own traces. Prices come from your provider's page, not from the kit |
+| `docs/SCHEDULE.md` · `docs/schedule/` | Saturday and Sunday hour by hour, as one sheet |
 | `docs/FLOWS.md` · `docs/flows/` | the five reference flows as SVG sheets (open `docs/flows/index.html` in a browser): trigger, fixed steps, where the model judges, the write, the gate. Saturday starts by picking one |
 
 Your writes to the estate go to `estate/data/state.json` (gitignored), so `git pull` never clobbers your run and `_estate.reset()` returns to a clean customer.
