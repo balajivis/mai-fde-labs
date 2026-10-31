@@ -1,0 +1,5 @@
+# The golden set is hashed byte for byte; Git must never rewrite its line endings.
+golden/*.jsonl -text
+golden/frozen.sha256 -text
+# Everything else: text, LF in the repo, whatever the checkout prefers is fine.
+* text=auto

@@ -115,7 +115,10 @@ S: dict = {"cases": [], "run": {}, "a": {}, "b": {}, "scores": {}, "live": {}, "
 # ── stage 1: the frozen set ──────────────────────────────────────────────────
 
 def sha256_of(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Line endings are not content: a Windows checkout with core.autocrlf on
+    # rewrites every \n as \r\n and the file would read as 'moved' when nothing
+    # in it changed. Hash the bytes with \r\n folded back to \n.
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def verify_freeze() -> tuple[bool, str, str]:

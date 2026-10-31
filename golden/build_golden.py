@@ -381,7 +381,10 @@ def build_cases() -> list[dict]:
 
 
 def sha256_of(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Line endings are not content: a Windows checkout with core.autocrlf on
+    # rewrites every \n as \r\n and the file would read as 'moved' when nothing
+    # in it changed. Hash the bytes with \r\n folded back to \n.
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def write_cases() -> list[dict]:
