@@ -1,0 +1,5 @@
+# Lab 2b only. Everything else in the kit stays framework-free on purpose.
+-r requirements.txt
+langgraph>=1.0
+langchain-openai>=1.0
+langchain-mcp-adapters>=0.3

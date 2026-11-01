@@ -1,0 +1,10 @@
+.env
+.venv
+venv
+__pycache__
+*.pyc
+reports/
+traces.jsonl
+estate/data/state.json
+estate/data/audit.jsonl
+.git

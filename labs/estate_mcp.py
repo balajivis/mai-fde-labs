@@ -19,8 +19,8 @@ into "Error executing tool X" and a stack trace on stderr, and an agent
 learns nothing from that. "DENIED: add_comment needs role agent" lets it
 re-plan — ask an admin, or say so to the user — instead of retrying.
 
-The SDK on this venv is mcp 2.x, where the quick-start class is `MCPServer`
-(the 1.x name was `FastMCP`; the import below is the 2.x path).
+The quick-start class is `MCPServer` on mcp 2.x and `FastMCP` on 1.x; the
+import below takes whichever is installed (lab 2b's packages pin 1.x).
 """
 
 from __future__ import annotations
@@ -33,7 +33,10 @@ import sys
 # the labs run from the repo root; this file lives in labs/
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from mcp.server.mcpserver import MCPServer  # noqa: E402
+try:
+    from mcp.server.mcpserver import MCPServer  # noqa: E402  (mcp 2.x)
+except ImportError:  # mcp 1.x — langchain-mcp-adapters (lab 2b) pins it; same class, older name
+    from mcp.server.fastmcp import FastMCP as MCPServer  # noqa: E402
 
 import _estate as E  # noqa: E402
 

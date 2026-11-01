@@ -17,7 +17,7 @@ and returns its text — a denial is text too (see `estate_mcp.py` for why).
 
 Verified against the installed SDK (mcp 2.x): `mcp.ClientSession`,
 `mcp.StdioServerParameters`, `mcp.client.stdio.stdio_client`, and
-`Tool.input_schema` (snake_case in 2.x).
+`Tool.input_schema` (snake_case in 2.x; `inputSchema` on 1.x — both handled).
 """
 
 from __future__ import annotations
@@ -57,7 +57,7 @@ def openai_tools(session_tools) -> list[dict]:
     tools = getattr(session_tools, "tools", session_tools)
     return [{"type": "function",
              "function": {"name": t.name, "description": t.description or "",
-                          "parameters": t.input_schema}}
+                          "parameters": getattr(t, "input_schema", None) or t.inputSchema}}
             for t in tools]
 
 

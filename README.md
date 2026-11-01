@@ -41,6 +41,7 @@ Four checks — Python and the packages, your key with one tiny model call, the 
 | Sat | `lab_2_wedge.py` | integration over MCP · build the wedge | **Deliverable II — Integration Map** |
 | Sat | `lab_2a_layers.py` | your customer's requirements → the questions the map needs → the eight layers and the flow | **Deliverable II for your own customer**, plus their flow on the kit's sheet |
 | Sat | `lab_3_eval_contract.py` | evals as the contract · the calibrated judge | **Deliverable III — Eval Contract** |
+| Sun | `lab_2b_multiagent.py` | the LangGraph taste: a router, three specialists, one gate, over the same MCP server | the three decisions filled in (routing rules, the gate, the budget), a chat you can deploy |
 | Sun | `lab_4_security.py` | the security review · red-team | **Deliverable IV — Security Review Pack** |
 | Sun | `lab_5_hitl_operate.py` | humans in the loop · deploy & operate | **Deliverables V–VI — Governance Canvas · Go-live & Handover** |
 
@@ -62,6 +63,7 @@ The templates for all six artefacts are in [`artefacts/`](./artefacts). The labs
 | `docs/COST.md` · `labs/lab_1a_cost.py` | lab 1a, the fifteen-minute cost estimate: four lines (model calls, embeddings, evals, fixed + people), a worksheet, and a calculator that later reads your own traces. Prices come from your provider's page, not from the kit |
 | `docs/SCHEDULE.md` · `docs/schedule/` | Saturday and Sunday hour by hour, as one sheet |
 | `labs/lab_2a_layers.py` | lab 2a: give it a brief (yours from lab 1, or any text), answer the questions it asks for the open layers, and it writes the Integration Map, the eight-layer sheet and the flow sheet for that customer into `reports/` |
+| `docs/GRAPH.md` · `labs/lab_2b_multiagent.py` · `Dockerfile` | lab 2b: a small multi-agent chat in LangGraph over the estate, the scaffold and the chat page given, three blanks left for you; one container to deploy it on a box you own. `pip install -r requirements-graph.txt` first |
 | `docs/FLOWS.md` · `docs/flows/` | the five reference flows as SVG sheets (open `docs/flows/index.html` in a browser): trigger, fixed steps, where the model judges, the write, the gate. Saturday starts by picking one |
 
 Your writes to the estate go to `estate/data/state.json` (gitignored), so `git pull` never clobbers your run and `_estate.reset()` returns to a clean customer.
