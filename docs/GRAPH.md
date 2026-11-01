@@ -13,7 +13,7 @@ python labs/lab_2b_multiagent.py            # terminal chat, as agent.priya
 python labs/lab_2b_multiagent.py --web      # the chat page at http://127.0.0.1:7866
 ```
 
-Same key, same proxy, same estate server as every other lab. Three packages are added: `langgraph`, `langchain-openai`, `langchain-mcp-adapters`. The last one turns the MCP session's tool listing into LangChain tools, so the specialists use the customer's tools exactly as the customer describes them.
+Same key, same proxy, same estate server as every other lab. Two packages are added: `langgraph` and `langchain-openai`. The MCP tools become LangChain tools in `mcp_tools()`, fifteen lines in the lab file, so the specialists use the customer's tools exactly as the customer describes them. (An adapter package exists; it pins an older `mcp` and broke on the kit's, so the kit does the conversion itself.)
 
 ## What is in the box
 

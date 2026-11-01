@@ -26,8 +26,8 @@ checks at the end of docs/GRAPH.md. "Done" is the checks, not the demo.
     python labs/lab_2b_multiagent.py --web             the chat page, http://127.0.0.1:7866
     python labs/lab_2b_multiagent.py --web --host 0.0.0.0   for Docker; needs CHAT_SECRET set
 
-Install first:  pip install -r requirements-graph.txt   (langgraph, langchain-openai,
-langchain-mcp-adapters; nothing else). The estate server, the key and the proxy are
+Install first:  pip install -r requirements-graph.txt   (langgraph and langchain-openai;
+nothing else). The estate server, the key and the proxy are
 the ones every other lab uses.
 
 What is in the graph (read build_graph; it is forty lines):
@@ -38,7 +38,8 @@ What is in the graph (read build_graph; it is forty lines):
             ──▶ answer   (no tools: reply with what the specialists found)
 
 Each specialist is a LangGraph ReAct agent with a subset of the customer's
-tools, loaded straight from the MCP session (langchain_mcp_adapters). The
+tools, loaded straight from the MCP session (mcp_tools below: fifteen lines,
+no adapter package, works on mcp 1.x and 2.x). The
 router is one model call that returns {"next": ..., "why": ...}. The gate is a
 LangGraph interrupt inside the write tools: the graph pauses, a person answers,
 the graph resumes — the same mechanism a production approval queue uses, so
@@ -65,12 +66,11 @@ from rich.markup import escape                                        # noqa: E4
 
 import _estate                                                        # noqa: E402  (RISK tags only)
 from _kit import MODEL, banner, client, say                           # noqa: E402
-from _mcp_client import estate_session                                # noqa: E402
+from _mcp_client import call, estate_session                          # noqa: E402
 
 try:
     from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
     from langchain_core.tools import StructuredTool
-    from langchain_mcp_adapters.tools import load_mcp_tools
     from langchain_openai import ChatOpenAI
     from langgraph.checkpoint.memory import MemorySaver
     from langgraph.graph import END, START, StateGraph
@@ -126,6 +126,24 @@ class State(TypedDict):
     hops: int
     route: str
     why: str
+
+
+async def mcp_tools(session) -> list[StructuredTool]:
+    """The customer's MCP tools as LangChain tools: same names, same descriptions,
+    same JSON schemas, each call going through the kit's own MCP client. A denial
+    comes back as text, so the agent can read it and re-plan."""
+    listed = (await session.list_tools()).tools
+    out = []
+    for t in listed:
+        schema = getattr(t, "input_schema", None) or getattr(t, "inputSchema", None) or {"type": "object", "properties": {}}
+
+        def bind(name):
+            async def run(**kw):
+                return await call(session, name, kw)
+            return run
+        out.append(StructuredTool(name=t.name, description=t.description or t.name,
+                                  args_schema=schema, coroutine=bind(t.name)))
+    return out
 
 
 def _gated(tool: StructuredTool) -> StructuredTool:
@@ -228,7 +246,7 @@ class Runner:
 
     async def _main(self):
         async with estate_session(self.user_id) as session:
-            self.tools = await load_mcp_tools(session)
+            self.tools = await mcp_tools(session)
             llm = self._llm or ChatOpenAI(model=MODEL, temperature=0)
             self.graph = build_graph(self.tools, llm, self.user_id)
             self.ready.set()

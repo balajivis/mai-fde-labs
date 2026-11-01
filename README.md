@@ -32,7 +32,7 @@ python labs/lab_0_setup.py
 
 Four checks — Python and the packages, your key with one tiny model call, the estate loading as you, and the estate answering over MCP — each with its fix printed beside it.
 
-**Sunday, for lab 2b only:** `pip install -r requirements-graph.txt` adds LangGraph and its MCP adapter. Every other lab stays framework-free. The install moves the `mcp` package back a major version; the kit handles both, and `python labs/lab_0_setup.py` afterwards proves it.
+**Sunday, for lab 2b only:** `pip install -r requirements-graph.txt` adds LangGraph and its OpenAI client. Every other lab stays framework-free. The customer's MCP tools reach LangGraph through the kit's own client, so no adapter package and no `mcp` version change.
 
 ## The labs
 
