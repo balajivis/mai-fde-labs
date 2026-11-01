@@ -32,6 +32,8 @@ python labs/lab_0_setup.py
 
 Four checks — Python and the packages, your key with one tiny model call, the estate loading as you, and the estate answering over MCP — each with its fix printed beside it.
 
+**Sunday, for lab 2b only:** `pip install -r requirements-graph.txt` adds LangGraph and its MCP adapter. Every other lab stays framework-free. The install moves the `mcp` package back a major version; the kit handles both, and `python labs/lab_0_setup.py` afterwards proves it.
+
 ## The labs
 
 | Day | Lab | Session | What you leave with |
@@ -45,7 +47,11 @@ Four checks — Python and the packages, your key with one tiny model call, the 
 | Sun | `lab_4_security.py` | the security review · red-team | **Deliverable IV — Security Review Pack** |
 | Sun | `lab_5_hitl_operate.py` | humans in the loop · deploy & operate | **Deliverables V–VI — Governance Canvas · Go-live & Handover** |
 
-Every lab runs two ways: `python labs/lab_N_….py` for a guided walkthrough in the terminal, or add `--web` for a page at `localhost:786N` with the lab's knobs on it. Same code either way; the page is served by Python's standard library, nothing to install.
+Most labs run two ways: `python labs/lab_N_….py` for a guided walkthrough in the terminal, or add `--web` for a page with the lab's knobs on it. Same code either way; the page is served by Python's standard library, nothing to install. Lab 1a is a calculator and lab 2a an interview, so both are terminal only.
+
+| `--web` | 1 | 2 | 3 | 4 | 5 | 2b |
+|---|---|---|---|---|---|---|
+| port | 7861 | 7862 | 7863 | 7864 | 7865 | 7866 (the chat page) |
 
 The templates for all six artefacts are in [`artefacts/`](./artefacts). The labs fill the parts they can; you fill the parts that need a judgement.
 
@@ -83,6 +89,24 @@ The server is plain MCP, so Claude Desktop, VS Code and Cursor can use it direct
 }
 ```
 
+### Lab 2b: the LangGraph chat, and shipping it
+
+A router, three specialists (orders, policy, desk) and a person at the gate, over the same MCP server. The scaffold, the chat page and the container are given; three decisions are yours, each with a check that says when it is done. Read [`docs/GRAPH.md`](./docs/GRAPH.md) first.
+
+| Blank | Ships as | Done when |
+|---|---|---|
+| `ROUTING_RULES` | empty: the router guesses | five questions reach the specialist you intended, first hop, three runs out of three |
+| `needs_person()` | stops every write | an internal note runs, "mark resolved" stops, anything that moves money stops |
+| `MAX_HOPS` | one | a question needing the order and the policy gets both in one turn |
+
+```bash
+python labs/lab_2b_multiagent.py            # chat in the terminal, as agent.priya
+python labs/lab_2b_multiagent.py --web      # the chat page, http://127.0.0.1:7866
+docker build -t fde-chat .                  # the same page as one container
+```
+
+The container takes the key and a `CHAT_SECRET` from the environment and refuses to start on `0.0.0.0` without the secret. Nothing secret goes in the image; `.dockerignore` keeps `.env` out. The AWS steps are at the end of `docs/GRAPH.md`.
+
 ## For the business track
 
 Half the room runs engagements without writing code. Your wedge is the same wedge — configured on the agent canvas during the Saturday lab, judged on the same eval contract, defended in the same readout on Sunday. The discovery lab, the artefact templates and the golden set are yours as much as the engineers'; the Python labs are there to read, and your pair runs them with you.
@@ -94,6 +118,9 @@ git pull
 ```
 
 Run it at the start of every session. Fixes and the later labs land during the weekend.
+
+- **Lab 3 refused the golden set on Windows?** `git pull` fixes it: the freeze check now ignores line endings. Do not run `--unfreeze` to get past it; that re-freezes on the wrong hash with your name on it. If you already did, run `git checkout -- golden/frozen.sha256 golden/FREEZE_LOG.md` before you pull.
+- **Starting lab 2b?** `pip install -r requirements-graph.txt` once, after the pull.
 
 ## Stuck?
 

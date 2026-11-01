@@ -3,7 +3,7 @@
 tokens go on the agents and not on a UI.
 
     from _chat_web import serve
-    serve(runner, host="127.0.0.1", port=7863, title="...")
+    serve(runner, host="127.0.0.1", port=7866, title="...")
 
 Two JSON endpoints, both POST: /api/chat {thread, text} and /api/resume
 {thread, decision}. The page keeps the thread id; the graph keeps the state.
@@ -76,7 +76,7 @@ document.getElementById('f').onsubmit=async e=>{e.preventDefault();const t=docum
 </script></body></html>"""
 
 
-def serve(runner, host: str = "127.0.0.1", port: int = 7863, title: str = "the desk") -> None:
+def serve(runner, host: str = "127.0.0.1", port: int = 7866, title: str = "the desk") -> None:
     secret = os.environ.get("CHAT_SECRET", "")
     if host != "127.0.0.1" and not secret:
         sys.exit("refusing to bind " + host + " without CHAT_SECRET in the environment (see docs/GRAPH.md)")

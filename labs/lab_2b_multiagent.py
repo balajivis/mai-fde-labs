@@ -23,7 +23,7 @@ checks at the end of docs/GRAPH.md. "Done" is the checks, not the demo.
 
     python labs/lab_2b_multiagent.py                   chat in the terminal, as agent.priya
     python labs/lab_2b_multiagent.py --as admin.ruth   the same graph as another user
-    python labs/lab_2b_multiagent.py --web             the chat page, http://127.0.0.1:7863
+    python labs/lab_2b_multiagent.py --web             the chat page, http://127.0.0.1:7866
     python labs/lab_2b_multiagent.py --web --host 0.0.0.0   for Docker; needs CHAT_SECRET set
 
 Install first:  pip install -r requirements-graph.txt   (langgraph, langchain-openai,
@@ -318,7 +318,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Lab 2b — a small multi-agent chat in LangGraph")
     ap.add_argument("--as", dest="user", default="agent.priya", help="estate user (default agent.priya)")
     ap.add_argument("--web", action="store_true", help="serve the chat page instead of the terminal")
-    ap.add_argument("--port", type=int, default=7863)
+    ap.add_argument("--port", type=int, default=7866)
     ap.add_argument("--host", default="127.0.0.1", help="0.0.0.0 only inside Docker, and only with CHAT_SECRET")
     args = ap.parse_args()
 

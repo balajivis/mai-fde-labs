@@ -10,7 +10,7 @@ One hour. The kit's wedge is one loop and stays one loop; this is the other shap
 git pull
 pip install -r requirements-graph.txt
 python labs/lab_2b_multiagent.py            # terminal chat, as agent.priya
-python labs/lab_2b_multiagent.py --web      # the chat page at http://127.0.0.1:7863
+python labs/lab_2b_multiagent.py --web      # the chat page at http://127.0.0.1:7866
 ```
 
 Same key, same proxy, same estate server as every other lab. Three packages are added: `langgraph`, `langchain-openai`, `langchain-mcp-adapters`. The last one turns the MCP session's tool listing into LangChain tools, so the specialists use the customer's tools exactly as the customer describes them.
@@ -89,16 +89,16 @@ One container, the key from the environment, a secret on the page.
 
 ```
 docker build -t fde-chat .
-docker run --rm -p 7863:7863 \
+docker run --rm -p 7866:7866 \
   -e OPENAI_API_KEY=<your practice key> \
   -e OPENAI_BASE_URL=https://learn.modernaipro.com/api/llm/v1 \
   -e CHAT_SECRET=$(openssl rand -hex 24) \
   fde-chat
 ```
 
-Open `http://127.0.0.1:7863/?k=<CHAT_SECRET>`. The page keeps the secret in memory and strips it from the address bar.
+Open `http://127.0.0.1:7866/?k=<CHAT_SECRET>`. The page keeps the secret in memory and strips it from the address bar.
 
-On AWS the same image runs on App Runner (push to ECR, create a service from the image, set the three environment variables, port 7863) or on a small EC2 instance with Docker installed. Either way:
+On AWS the same image runs on App Runner (push to ECR, create a service from the image, set the three environment variables, port 7866) or on a small EC2 instance with Docker installed. Either way:
 
 - **The key never goes in the image, the repo, or a Dockerfile `ENV` line.** `.dockerignore` already excludes `.env`; keep it that way.
 - **No `CHAT_SECRET`, no page.** The server refuses to bind `0.0.0.0` without one. A chat on a practice key, reachable by anyone, is somebody else's token bill by Monday.
